@@ -1,0 +1,117 @@
+<!-- xml reconstructed by Source 2 Viewer 10.2.0.0 - https://valveresourceformat.github.io -->
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/citadel_base_styles.vcss_c" />
+		<include src="s2r://panorama/styles/citadel_hud_hero_builds.vcss_c" />
+		<include src="s2r://panorama/styles/avatar_image.vcss_c" />
+	</styles>
+	<snippets>
+		<snippet name="AbilityPipColumn">
+			<Panel class="AbilityPipColumn">
+				<Panel class="abilityUpgradeContainer">
+					<Panel class="pipAndCostContainer">
+						<Panel class="abilityLevelPip" />
+						<Label class="abilityUpgradeCostLabel" text="{i:ability_point_cost}" />
+					</Panel>
+				</Panel>
+			</Panel>
+		</snippet>
+	</snippets>
+	<CitadelHudHeroBuilds>
+		<GlobalClassListener classes="gBrowsingBuilds gShopOpen" />
+		<Panel id="BrowseHeroBuildsNav" class="HeroBuildNav">
+			<Panel class="NavContainer">
+				<Label class="HeroBuildsTitle" text="#Citadel_HeroBuilds_BrowseBuildTitle" />
+				<Label class="HeroBuildsSubTitle" text="#Citadel_HeroBuilds_BrowseBuildSubheader" />
+				<Panel id="CreateBuildButton" class="actionItemButton" onmouseactivate="CitadelHudHeroBuildsCreateNewBuild()">
+					<Label text="#Citadel_HeroBuilds_CreateBuildLabel" />
+				</Panel>
+				<CitadelHeroBuildsSelector id="HeroBuildSelector" user_builds_only="false" />
+				<Panel class="HeroBuildsExtraInfo">
+					<Panel id="BuildInfo">
+						<Label class="BuildName" text="#Citadel_HeroBuilds_BuildName" />
+						<Panel class="AuthoringInfo">
+							<CitadelAvatarImage id="AuthorAvatar" />
+							<Panel class="TopBottomFlow">
+								<Label class="Version" html="true" text="#Citadel_HeroBuilds_Version" />
+								<Label class="LastUpdated" html="true" text="#Citadel_HeroBuilds_LastUpdatedTime" />
+							</Panel>
+						</Panel>
+						<Label class="BuildDescription" text="#Citadel_HeroBuilds_BuildDescription" />
+						<Panel class="LeftRightFlow" />
+					</Panel>
+					<Panel id="ManageBuildControls" class="BuildControls" hittest="false">
+						<Panel id="CopyBuildButton" class="SecondaryButton light fill hasIcon" onmouseactivate="CitadelHudHeroBuildsCopyAndEditSelectedBuild()">
+							<Label text="#Citadel_HeroBuilds_CopyBuildLabel" />
+						</Panel>
+						<Panel id="AuthorControls">
+							<Button id="EditBuildButton" class="SecondaryButton light fill hasIcon" onmouseactivate="CitadelHudHeroBuildsEditSelectedBuild()">
+								<Label text="#Citadel_HeroBuilds_EditBuildLabel" />
+							</Button>
+							<Button id="PublishBuildButton" class="SecondaryButton outline" onmouseactivate="$.GetContextPanel().AddClass(&apos;ShowPublishPanel&apos;)">
+								<Label text="#Citadel_HeroBuilds_PublishBuildLabel" />
+							</Button>
+							<Button id="DeleteBuildButton" class="SecondaryButton fill red hasIcon" onmouseover="CitadelPlayUISound( EMainMenuHover )" onmouseactivate="CitadelHudHeroBuildsDeleteSelectedBuildPressed(true)">
+								<Label text="#Citadel_HeroBuilds_DeleteBuildLabel" />
+							</Button>
+						</Panel>
+					</Panel>
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel id="EditingHeroBuildsNav" class="HeroBuildNav">
+			<Panel class="NavContainer">
+				<Panel class="TopBottomFlow">
+					<Label class="HeroBuildsTitle" text="#Citadel_HeroBuilds_EditingBuildTitle" />
+					<Label class="HeroBuildsSubTitle" text="#Citadel_HeroBuilds_EditingBuildSubheader" />
+				</Panel>
+				<Label class="HeroBuildEditInstructions" html="true" text="#Citadel_HeroBuilds_EditInstructions" />
+			</Panel>
+			<Panel id="EditBuildControls" class="BuildControls" hittest="false">
+				<Panel id="SaveBuildButton" class="SecondaryButton light fill" onmouseactivate="CitadelHudHeroBuildsSaveEdits()">
+					<Label text="#Citadel_HeroBuilds_SaveBuild" />
+				</Panel>
+				<Panel id="CancelChangesButton" class="SecondaryButton fill red visibleByDefault" onmouseactivate="CitadelHudHeroBuildsDiscardEdits()">
+					<Label text="#Citadel_HeroBuilds_CancelChanges" />
+				</Panel>
+			</Panel>
+		</Panel>
+		<Panel id="PublishBuildContainer" hittest="true">
+			<Panel class="PublishInfo">
+				<Label class="HeroBuildsTitle" text="#Citadel_HeroBuilds_PublishBuildTitle" />
+				<Label class="HeroBuildsDesc" text="#Citadel_HeroBuilds_PublishBuildDesc" />
+				<Label class="HeroBuildsSubTitle" text="#Citadel_HeroBuilds_BuildNameTitle" />
+				<TextEntry id="HeroBuildNameTextEntry" placeholder="#Citadel_HeroBuilds_NameLabel" undohistroy="enabled" maxchars="50" />
+				<Label class="HeroBuildsSubTitle" text="#Citadel_HeroBuilds_BuildDescriptionTitle" />
+				<TextEntry id="HeroBuildDescriptionTextEntry" placeholder="#Citadel_HeroBuilds_DescriptionLabel" undohistroy="enabled" maxchars="4096" multiline="true" />
+				<Label id="HeroBuildVersion" text="#Citadel_HeroBuilds_PublishDialogVersion" />
+			</Panel>
+			<Panel id="PublishBuildButton" class="actionItemButton" onmouseactivate="CitadelHudHeroBuildsPublishSelectedBuild()">
+				<Label text="#Citadel_HeroBuilds_PublishBuildLabel" />
+			</Panel>
+			<Panel class="CloseButton" onmouseactivate="$.GetContextPanel().RemoveClass(&apos;ShowPublishPanel&apos;)" />
+		</Panel>
+		<Panel id="AbilityBuildContainer" hittest="true">
+			<Label class="AbilityBuildLabel" text="#Citadel_HeroBuilds_AbilityBuildTitle" />
+			<Panel id="AbilityBuildSummary">
+				<Panel class="AbilityBuildBG">
+					<Panel class="AbilityBuildBGBar Odd" />
+					<Panel class="AbilityBuildBGBar Even" />
+					<Panel class="AbilityBuildBGBar Odd" />
+					<Panel class="AbilityBuildBGBar Even" />
+				</Panel>
+				<Label class="AbilityBuildInstructionsLabel" text="#Citadel_HeroBuilds_AbilityBuildInstructions" />
+				<Panel id="AbilityBuildIcons">
+					<Image id="ability_image0" class="ability_image" scaling="stretch-to-fit-preserve-aspect" />
+					<Image id="ability_image1" class="ability_image" scaling="stretch-to-fit-preserve-aspect" />
+					<Image id="ability_image2" class="ability_image" scaling="stretch-to-fit-preserve-aspect" />
+					<Image id="ability_image3" class="ability_image" scaling="stretch-to-fit-preserve-aspect" />
+				</Panel>
+				<Panel id="AbilityBuildPips" />
+			</Panel>
+			<Panel id="EditAbilityBuild" class="SecondaryButton light fill hasIcon" onmouseactivate="CitadelHudHeroBuildsStartEditingAbilityBuild()">
+				<Label text="#Citadel_HeroBuilds_AbilityBuildReset" />
+			</Panel>
+		</Panel>
+	</CitadelHudHeroBuilds>
+</root>
