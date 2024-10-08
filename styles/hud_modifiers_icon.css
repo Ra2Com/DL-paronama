@@ -111,12 +111,6 @@
 	background-color: red;
 }
 
-.tempestWard .modifier_icon
-{
-	background-image: url("s2r://panorama/images/hud/modifiers/modifier_tempest_ward_psd.vtex");
-	background-color: red;
-}
-
 .marksman .modifier_icon
 {
 	background-image: url("s2r://panorama/images/hud/abilities/hornet/hornet_assassinate_psd.vtex");
