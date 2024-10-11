@@ -53,7 +53,7 @@
 					</Panel>
 				</Panel>
 			</Panel>
-			<Panel id="LaneTraining" class="playOptionContainer hasTasks" onactivate="CitadelShowRosterConfirmPage( 6 ); CitadelPlayUISound( EMainMenuActivate );" onmouseover="CitadelPlayUISound( EMainMenuHover )">
+			<Panel id="LaneTraining" class="playOptionContainer hasTasks" onactivate="CitadelShowRosterConfirmPage( BotMatchGuided ); CitadelPlayUISound( EMainMenuActivate );" onmouseover="CitadelPlayUISound( EMainMenuHover )">
 				<Panel class="cardBorder" />
 				<Panel class="playOptionTop">
 					<Panel class="buttonImage" />

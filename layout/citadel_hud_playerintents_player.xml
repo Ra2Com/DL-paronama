@@ -11,7 +11,7 @@
 				<CitadelHeroImage id="HeroIcon" heroid="1" heroimagestyle="top_bar" />
 			</Panel>
 			<Panel class="PlayerIntentContainer">
-				<Label id="PlayerIntent" text="{s:player_intent}" html="true" />
+				<Label id="PlayerIntent" text="{s:player_intent}" />
 			</Panel>
 			<Panel class="HeroInnerContent">
 				<Panel class="DeathStatus">

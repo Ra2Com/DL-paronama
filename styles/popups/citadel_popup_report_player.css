@@ -23,6 +23,7 @@ PopupReportPlayer
 {
 	flow-children: down;
 	margin-right: 30px;
+	max-width: 200px;
 }
 
 .LabelRow

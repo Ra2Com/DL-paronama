@@ -370,6 +370,32 @@ CitadelHudTopBarPlayer.LaneNum6 .HeroContentsCoinBackground,CitadelHudTopBarPlay
 	width: playerDetailsWidth;
 	border-radius: 0px 0px 170px 170px;
 	z-index: 1;
+	visibility: visible;
+}
+
+.Frog #HeroIcon
+{
+	visibility: collapse;
+}
+
+#FrogImage
+{
+	vertical-align: bottom;
+	horizontal-align: center;
+	ignore-parent-flow: true;
+	height: 94px;
+	width: playerDetailsWidth;
+	background-size: cover;
+	background-repeat: no-repeat;
+	border-radius: 0px 0px 170px 170px;
+	z-index: 1;
+	background-image: url("s2r://panorama/images/heroes/frog_vertical_psd.vtex");
+	visibility: collapse;
+}
+
+.Frog #FrogImage
+{
+	visibility: visible;
 }
 
 .Dead #HeroIcon
@@ -856,6 +882,11 @@ Label.KillStreakText
 	background-image: url("s2r://panorama/images/hud/text_images/kill_streak/kill_streak_german_png.vtex");
 }
 
+.Language_italian .KillStreakImageText
+{
+	background-image: url("s2r://panorama/images/hud/text_images/kill_streak/kill_streak_italian_png.vtex");
+}
+
 .Language_korean .KillStreakImageText
 {
 	background-image: url("s2r://panorama/images/hud/text_images/kill_streak/kill_streak_korean_png.vtex");
@@ -919,6 +950,11 @@ Label.KillStreakText
 .Language_german .FirstBloodImageText
 {
 	background-image: url("s2r://panorama/images/hud/text_images/first_blood/first_blood_german_png.vtex");
+}
+
+.Language_italian .FirstBloodImageText
+{
+	background-image: url("s2r://panorama/images/hud/text_images/first_blood/first_blood_italian_png.vtex");
 }
 
 .Language_korean .FirstBloodImageText
@@ -1002,6 +1038,12 @@ Label.KillStreakText
 .VoiceActive .VoiceBar
 {
 	visibility: visible;
+}
+
+.PartyVoiceActive .VoiceBar
+{
+	visibility: visible;
+	background-color: ritualGreen;
 }
 
 .DeathStatus

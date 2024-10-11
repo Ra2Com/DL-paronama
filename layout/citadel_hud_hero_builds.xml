@@ -33,6 +33,10 @@
 						<Panel class="AuthoringInfo">
 							<CitadelAvatarImage id="AuthorAvatar" />
 							<Panel class="TopBottomFlow">
+								<Panel class="LeftRightFlow">
+									<Label class="BuildID" text="#Citadel_HeroBuilds_BuildID" onactivate="CitadelCopySelectedBuildIDToClipboard()" />
+									<Label class="CopiedToClipboard" text="#Citadel_HeroBuilds_BuildID_Copied" />
+								</Panel>
 								<Label class="Version" html="true" text="#Citadel_HeroBuilds_Version" />
 								<Label class="LastUpdated" html="true" text="#Citadel_HeroBuilds_LastUpdatedTime" />
 							</Panel>

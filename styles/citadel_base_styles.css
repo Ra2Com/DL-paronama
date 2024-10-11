@@ -3,7 +3,7 @@
 @import url("s2r://panorama/styles/citadel_shared_colors.vcss_c");
 @define sans: Retail Demo, Noto Sans, sans-serif;
 @define sansMono: Retail Text Demo, Noto Sans;
-@define serif: Forevs Demo, Reaver;
+@define serif: Forevs Demo, Reaver, serif;
 @define baseText: #FFEFD7;
 @define baseBorder: #444444ff;
 @define selectedTextBackgroundColor: #66666633;
@@ -334,7 +334,7 @@ Label
 	wash-color: silvered;
 }
 
-.SecondaryButton.light:hover .buttonIcon
+.SecondaryButton.light.outline:hover .buttonIcon
 {
 	wash-color: offBlack;
 }
@@ -573,7 +573,7 @@ Label
 	background-repeat: no-repeat;
 }
 
-#InfoIcon
+#InfoIcon,.InfoIcon
 {
 	vertical-align: center;
 	height: 24px;

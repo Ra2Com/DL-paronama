@@ -262,7 +262,6 @@ PopupSettings Label
 #KeybindsSettingsContainer .SettingsColumnContainer
 {
 	flow-children: down;
-	overflow: clip scroll;
 }
 
 .AspectRatio4x3 .SettingsColumnContainer
@@ -299,21 +298,54 @@ PopupSettings Label
 	width: 100%;
 }
 
-.HotKeySettingsColumn
+.HotkeySettingsColumn
 {
 	flow-children: down;
 	margin: 0px;
-	width: fill-parent-flow( 1.0 );
-	width: 502px;
-	padding: 0px 16px 0px 16px;
+	margin: 0px 0px 0px 16px;
+	padding: 0px 0px 0px 0px;
+	width: 60%;
+	overflow: noclip;
 }
 
-.AspectRatio4x3 .HotKeySettingsColumn
+#QuickCastDescription
+{
+	vertical-align: center;
+	letter-spacing: normal;
+}
+
+#MuteConsoleBinder
+{
+	width: 70%;
+}
+
+.ItemQuickCastContainer,.GlobalQuickCastContainer
+{
+	horizontal-align: right;
+	margin: 5px 0px 5px 5px;
+}
+
+.lookingAtUnitSpecificBinds .GlobalQuickCastContainer
+{
+	visibility: collapse;
+}
+
+.quickCastSelectOption
+{
+	opacity: 0.5;
+}
+
+#ItemQuickCastDropDown,#GlobalQuickCastMode
+{
+	width: 270px;
+}
+
+.AspectRatio4x3 .HotkeySettingsColumn
 {
 	width: 453px;
 }
 
-.HotKeySettingsColumn .SettingsSection
+.HotkeySettingsColumn .SettingsSection
 {
 	margin-top: 0px;
 }
@@ -690,11 +722,21 @@ PopupSettings Label
 	margin-bottom: 3px;
 }
 
+#ItemQuickCastDropDownContainer #UnitHasBindsIndicator
+{
+	margin-right: 40px;
+}
+
 .AbilityUpgradeDesc
 {
 	horizontal-align: center;
 	font-size: 16px;
 	margin-top: 20px;
+}
+
+.ItemQuickCastIndicator
+{
+	z-index: 9;
 }
 
 .unitHasKeybinds #UnitHasBindsIndicator
@@ -709,8 +751,14 @@ PopupSettings Label
 
 .UnitSpecificHotkeyControls
 {
-	width: 100%;
 	flow-children: down;
+	margin: 0px 0px 0px 16px;
+	width: 60%;
+}
+
+#KeybindsSettingsContainer .SectionHeaderLine.UnitSpecificLineSeperator
+{
+	margin: 20px 16px 20px 16px;
 }
 
 .PerUnitCheckboxContainer
@@ -1165,10 +1213,15 @@ PopupSettings Label
 	vertical-align: center;
 	horizontal-align: right;
 	padding: 2px 10px;
-	margin-right: 24px;
+	margin-right: 40px;
 	transition-property: opacity;
 	transition-duration: 0.2s;
 	transition-timing-function: ease-in-out;
+}
+
+#ClearHeroAbilityBindings:hover
+{
+	brightness: 2;
 }
 
 #ClearHeroAbilityBindings Label
@@ -2343,6 +2396,7 @@ CitadelSettingsEnum .EnumButton
 	horizontal-align: right;
 	margin-right: -35px;
 	margin-left: 35px;
+	overflow: noclip;
 }
 
 .EmoticonsContainerTitle
@@ -2363,6 +2417,12 @@ CitadelSettingsEnum .EnumButton
 	font-weight: thin;
 	text-transform: uppercase;
 	margin-top: 10px;
+}
+
+.ActionBindsText.SubHeaderText
+{
+	margin-top: 0px;
+	padding-top: 0px;
 }
 
 .reticleSubSection
@@ -2805,5 +2865,15 @@ CitadelSettingsEnum .EnumButton
 	width: 100%;
 	height: fit-children;
 	flow-children: down;
+}
+
+#HeroKeybindsContainer
+{
+	overflow: clip scroll;
+}
+
+#HeroKeybindsContainer DropDown
+{
+	margin-right: 68px;
 }
 

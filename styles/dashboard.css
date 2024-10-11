@@ -513,12 +513,12 @@ PopupManager
 	animation-name: none;
 }
 
-.has_users_in_queue #HeroRosterScenePanel
+.in_matchmaking #HeroRosterScenePanel
 {
 	visibility: visible;
 }
 
-.has_users_in_queue #HeroRosterScenePanel.FadeIn
+.in_matchmaking #HeroRosterScenePanel.FadeIn
 {
 	visibility: visible;
 	animation-name: RosterFadeIn;
@@ -527,7 +527,7 @@ PopupManager
 	animation-iteration-count: 1;
 }
 
-.has_users_in_queue #HeroRosterScenePanel.FadeOut
+.in_matchmaking #HeroRosterScenePanel.FadeOut
 {
 	visibility: visible;
 	animation-name: RosterFadeOut;
@@ -904,9 +904,9 @@ PopupManager
 	width: 280px;
 	padding: 0px 0px;
 	height: 70px;
-	overflow: noclip;
 	horizontal-align: left;
 	flow-children: right;
+	overflow: noclip;
 }
 
 .menuButtonLabel
@@ -956,7 +956,6 @@ PopupManager
 #exittesting.nav_menu_item Label
 {
 	font-weight: bold;
-	margin-top: 10px;
 }
 
 #quit.nav_menu_item Label
@@ -987,7 +986,6 @@ PopupManager
 	color: ritualGreenLight;
 	z-index: 100;
 	font-size: 60px;
-	font-style: italic;
 	transform: rotateZ(-1deg);
 }
 
@@ -1485,33 +1483,6 @@ PopupManager
 	height: 15px;
 }
 
-#playtest_time
-{
-	background-color: #000000ee;
-	color: silvered;
-	width: 100%;
-	flow-children: right;
-	padding: 15px;
-}
-
-#playtest_time Label
-{
-	font-size: 20px;
-}
-
-.scheduleIntro
-{
-	color: offWhite;
-	margin-right: 8px;
-	font-weight: semi-bold;
-}
-
-.scheduleDesc
-{
-	color: brandGreen;
-	font-weight: bold;
-}
-
 .unranked_party_blocked,.unranked_mm_paused,.unranked_mm_disabled
 {
 	visibility: collapse;
@@ -1770,6 +1741,7 @@ PopupManager
 {
 	flow-children: right;
 	margin: 10px 0px;
+	vertical-align: bottom;
 }
 
 #DiscordButton
@@ -1868,6 +1840,7 @@ PopupManager
 	vertical-align: top;
 	horizontal-align: right;
 	flow-children: down;
+	width: 600px;
 }
 
 #NewPlayerContainer
@@ -2203,52 +2176,38 @@ PopupManager
 
 #PlayMenu
 {
-	padding: 0px 70px 0px 0px;
 	height: 100%;
-	width: 500px;
-	flow-children: down;
+	width: 1200px flow-children: right;
 	transition-property: transform;
 	transition-duration: 0.15s;
 	background-color: gradient( linear, 100% 0%, 80% 0%, from( #00000000 ), to( #000000aa ) );
-	background-color: #111;
+	background-color: #111111f9;
 	background-size: 100%;
 	background-position: right;
 	z-index: 9;
-	flow-children: down;
+	flow-children: right;
 	opacity: 0;
-	opacity-mask: url("s2r://panorama/images/main_menu/sidebar_png.vtex");
 	transition-property: width;
-	transition-duration: 0.4s;
+	transition-duration: 0.05s;
 	transition-timing-function: ease;
 }
 
 .IsShowingDashboardPage.showPlayMenu #PlayMenu,.connectedToGame.showPlayMenu #PlayMenu
 {
-	width: 700px;
+	width: 1200px;
 	opacity: 1;
 	transition-property: width, opacity;
-	transition-duration: 0.2s;
+	transition-duration: 0s;
 }
 
-#GameTitleSpacer
+#PlayModes
 {
-	horizontal-align: left;
-	background-size: cover;
-	width: 320px;
-	height: 150px;
 	flow-children: down;
-	margin-top: 60px;
-	margin-bottom: 20px;
-	margin-left: 90px;
-	margin-left: 60px;
-	transition-property: height;
-	transition-duration: 0.2s;
-	transition-delay: 0.1s;
-}
-
-.showPlayMenu #GameTitleSpacer
-{
-	height: 0px;
+	width: 700px;
+	height: 100%;
+	padding: 0px 20px;
+	margin-left: 100px;
+	padding-top: 80px;
 }
 
 #PlayOptions
@@ -2260,7 +2219,7 @@ PopupManager
 	opacity: 0;
 	transition-property: transform, opacity;
 	transition-duration: 0.2s;
-	transition-delay: 0.2s;
+	transition-delay: 0.05s;
 }
 
 .showPlayMenu #PlayOptions
@@ -2268,10 +2227,10 @@ PopupManager
 	opacity: 1;
 	transform: translateX(0px);
 	transition-property: transform, opacity;
-	transition-duration: 0.2s;
+	transition-duration: 0s;
 }
 
-#PlayTitle Label
+Label.PlayTitle
 {
 	font-size: 28px;
 	color: rgba(255, 255, 255, 0.8);
@@ -2279,25 +2238,120 @@ PopupManager
 	color: #262626;
 	color: offWhite;
 	opacity: 0.3;
-	padding-left: 89px;
+	padding: 10px;
 	font-family: serif;
 }
 
 .playoption Label.menuButtonLabel
 {
-	vertical-align: middle;
 	font-style: normal;
 	font-family: serif;
 	font-weight: bold;
-	font-size: 36px;
-	padding: 2px 0px;
-	text-align: left;
-	horizontal-align: left;
+	font-size: 26px;
+	height: 50px;
+	width: 100%;
+	border: 1px solid red;
+	padding: 0px 5px;
+	text-overflow: shrink;
+	text-align: center;
+	horizontal-align: center;
 	color: #FFEFD7aa;
-	letter-spacing: 0px;
-	transition-property: color, transform;
-	transition-duration: 0.08s;
+	margin-top: 8px;
 	overflow: noclip;
+}
+
+.ImgArea
+{
+	width: 100%;
+	height: 220px;
+	background-color: #333;
+}
+
+.smallButton .ImgArea
+{
+	height: 150px;
+}
+
+.TextArea
+{
+	flow-children: up;
+	width: 100%;
+	height: 160px;
+	padding: 0px 5px;
+	vertical-align: bottom;
+	background-color: offBlack&f5;
+}
+
+.playoptionLabel
+{
+	font-size: 38px;
+	font-family: serif;
+	font-weight: bold;
+	horizontal-align: center;
+	text-align: center;
+	vertical-align: bottom;
+	text-overflow: shrink;
+	line-height: 32px;
+	width: 100%;
+}
+
+#Option_Ranked .playoptionLabel
+{
+	margin-bottom: -7px;
+}
+
+#Option_RankedLocked .playoptionLabel
+{
+	opacity: 0.5;
+}
+
+.smallButton .playoptionLabel
+{
+	font-size: 26px;
+}
+
+#BotDifficultyDropDown
+{
+	visibility: collapse;
+}
+
+#TitleArea
+{
+	width: 100%;
+	max-height: 80px;
+	flow-children: down;
+}
+
+.rankedAvailableStatus
+{
+	font-size: 22px;
+	text-transform: uppercase;
+	color: rgb(199, 83, 83);
+	font-weight: bold;
+	font-family: serif;
+	horizontal-align: center;
+	letter-spacing: 1px;
+}
+
+#Option_Ranked:hover .rankedAvailableStatus
+{
+	brightness: 1.3;
+}
+
+#DescArea
+{
+	width: 100%;
+	height: 80px;
+}
+
+#RankedOpeningSoon
+{
+	text-align: center;
+	font-weight: semi-bold;
+	color: rgb(55, 155, 131);
+	padding: 0px 20px;
+	margin-bottom: 30px;
+	font-size: 16px;
 }
 
 .playoption:hover Label.menuButtonLabel
@@ -2307,27 +2361,62 @@ PopupManager
 	transition-duration: 0.08s;
 }
 
-#Option_Matchmaking.playoption:hover Label.menuButtonLabel
+#Option_Matchmaking.playoption:hover Label.menuButtonLabel,#Option_PlayersVsBots.playoption:hover Label.menuButtonLabel
 {
-	font-style: italic;
 	color: offBlack;
 	transition-property: color, transform;
 	transition-duration: 0.08s;
+}
+
+#PrimaryModes
+{
+	width: 780px;
+}
+
+#SubModes
+{
+	width: 780px;
 }
 
 .playoption
 {
 	margin: 0px;
 	flow-children: down;
-	width: 100%;
-	height: fit-children;
-	padding: 20px 0px;
-	overflow: noclip;
-	padding-left: 90px;
 	margin-bottom: 3px;
-	background-color: #00000090;
-	transition-property: background-color, padding;
+	background-color: offBlack;
+	border: 1px solid #424242;
+	border-radius: 5px;
+	transition-property: background-color, pre-transform-scale2d, padding;
 	transition-duration: 0.2s;
+}
+
+.largeButton.option2
+{
+	x: 330px;
+}
+
+.smallButton.option2
+{
+	x: 220px;
+}
+
+.smallButton.option3
+{
+	x:440px;
+}
+
+.playoption.largeButton
+{
+	width: 310px;
+	height: 400px;
+	margin: 10px;
+}
+
+.playoption.smallButton
+{
+	width: 200px;
+	height: 300px;
+	margin: 10px;
 }
 
 .in_party #Option_HeroTesting
@@ -2342,19 +2431,35 @@ PopupManager
 
 .playoption:hover
 {
-	background-color: offWhite;
+	brightness: 1.6;
+	pre-transform-scale2d: 1.05;
 }
 
-#Option_Matchmaking.playoption
+#Option_Matchmaking.playoption Label.menuButtonLabel,#Option_PlayersVsBots.playoption Label.menuButtonLabel
 {
-	padding: 50px 0px;
-	padding-left: 90px;
-}
-
-#Option_Matchmaking.playoption Label.menuButtonLabel
-{
-	font-size: 46px;
+	font-size: 38px;
+	text-align: center;
+	horizontal-align: center;
 	color: offWhite;
+	height: 52px;
+	text-overflow: shrink;
+}
+
+#Option_RankedLocked
+{
+	background-image: url("s2r://panorama/images/main_menu/menu_images/button_ranked_locked_png.vtex");
+	background-image: url("s2r://panorama/images/ranked/ranked_closed_png.vtex");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#Option_Ranked
+{
+	background-image: url("s2r://panorama/images/ranked/ranked_closed_png.vtex");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .playoption Label.queueNumber
@@ -2372,22 +2477,149 @@ PopupManager
 	color: #334c9f;
 }
 
+#RankedMode .TextArea
+{
+	flow-children: up;
+	width: 100%;
+	height: 170px;
+	padding: 0px 25px;
+	vertical-align: bottom;
+	background-color: none;
+	margin-bottom: 0px;
+}
+
+#Option_RankedLocked .TextArea
+{
+	margin-bottom: 10px;
+}
+
+#RankedMode Label.playModeDesc
+{
+	height: 85px;
+}
+
+#RankArea
+{
+	width: 250px;
+	height: 250px;
+	horizontal-align: center;
+	vertical-align: center;
+	margin-top: 10px;
+}
+
+#RankMedal
+{
+	width: 100%;
+	height: 100%;
+	margin-bottom: 20px;
+}
+
+.rankTitle
+{
+	horizontal-align: center;
+	vertical-align: bottom;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: offWhite&30;
+	font-family: serif;
+	margin-bottom: 10px;
+	font-size: 28px;
+	max-height: 40px;
+	text-overflow: shrink;
+	text-align: center;
+}
+
+#RankMedal.rank0
+{
+	background-image: url("s2r://panorama/images/ranked/uninitiated_png.vtex");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#UnlockArea
+{
+	width: 200px;
+	height: 200px;
+	horizontal-align: center;
+	margin-top: 30px;
+	background-size: cover;
+}
+
+#RankedProgressCircle
+{
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	background-color: #717171;
+}
+
+#RankedProgressCircleAmount
+{
+	height: 100%;
+	width: 100%;
+	border-radius: 50%;
+	background-color: #62e762;
+}
+
+#ProgressLabelsContainer
+{
+	height: 90%;
+	width: 90%;
+	border-radius: 50%;
+	vertical-align: middle;
+	horizontal-align: center;
+	background-color: #10130d;
+}
+
+#ProgressLabels
+{
+	height: 80px;
+	vertical-align: middle;
+	horizontal-align: center;
+	flow-children: right;
+}
+
+#progressAchieved
+{
+	font-size: 60px;
+	font-family: serif;
+	font-weight: bold;
+}
+
+#progressTotal
+{
+	font-size: 35px;
+	font-family: serif;
+	vertical-align: bottom;
+	font-weight: semi-bold;
+	opacity: 0.3;
+}
+
 Label.playModeDesc
 {
 	font-family: sans;
-	font-size: 18px;
+	font-size: 15px;
 	color: offWhite&70;
+	text-align: center;
+	horizontal-align: center;
 	font-weight: semi-bold;
-	max-width: 400px;
-	height: fit-children;
-	min-height: 60px;
-	margin-top: 3px;
+	width: 100%;
+	vertical-align: top;
+	height: 100%;
+}
+
+.largeButton .playModeDesc
+{
+	font-size: 19px;
 }
 
 #play_low_priority_matchmaking_description
 {
 	visibility: collapse;
-	color: darkred;
+	color: colorEnemy;
+	text-overflow: shrink;
+	margin-bottom: 5px;
 }
 
 .LowPriorityMatchmaking #play_matchmaking_description
@@ -2400,15 +2632,375 @@ Label.playModeDesc
 	visibility: visible;
 }
 
-.playoption:hover Label.playModeDesc
+#RankedMode
+{
+	flow-children: down;
+	width: 400px;
+	height: 100%;
+	padding: 0px 20px;
+	padding-top: 80px;
+	background-color: #0b0b0b90;
+	border-left: 2px solid #ffffff03;
+}
+
+#RankedOption
+{
+	flow-children: down;
+	width: 100%;
+	padding: 10px;
+}
+
+.rankedoption
+{
+	margin: 0px;
+	flow-children: down;
+	margin-bottom: 3px;
+	width: 310px;
+	height: 430px;
+	horizontal-align: center;
+	transition-property: background-color, pre-transform-scale2d, padding;
+	transition-duration: 0.2s;
+}
+
+#Option_Ranked:hover
+{
+	brightness: 1.1;
+	pre-transform-scale2d: 1.01;
+	animation-name: card_locked;
+	animation-iteration-count: 1;
+	animation-duration: 0.8s;
+	opacity: 0.9;
+}
+
+@keyframes 'card_locked'
+{
+	0%
+	{
+		transform: rotateZ(0deg);
+	}
+	
+	30%
+	{
+		transform: rotateZ(-1deg);
+	}
+	
+	50%
+	{
+		transform: rotateZ(2deg);
+	}
+	
+	70%
+	{
+		transform: rotateZ(-1deg);
+	}
+	
+	100%
+	{
+		transform: rotateZ(0deg);
+	}
+	
+}
+
+#ScheduleInfo
+{
+	width: 100%;
+	height: fit-children;
+	flow-children: down;
+	padding: 20px 10px;
+}
+
+#ScheduleList
+{
+	horizontal-align: center;
+}
+
+#ScheduleList #Weekends
+{
+	visibility: collapse;
+}
+
+.ScheduleTitle
+{
+	horizontal-align: center;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+#SetSchedule
+{
+	horizontal-align: center;
+	margin: 10px;
+	padding: 5px 20px;
+	background-size: 100% 100%;
+	background-color: ritualGreen;
+	opacity: 0.8;
+	border-radius: 3px;
+	flow-children: right;
+	transition-property: opacity, background-color;
+	transition-duration: 0.2s;
+}
+
+#SetSchedule:hover
+{
+	brightness: 1.4;
+}
+
+#SetSchedule Label
+{
+	horizontal-align: center;
+	vertical-align: center;
+	font-weight: bold;
+	color: offBlack;
+	font-family: serif;
+	font-size: 22px;
+	color: offBlack;
+	margin-top: 5px;
+}
+
+@keyframes 'schedule_button_highlight'
+{
+	0%
+	{
+		brightness: 1;
+		pre-transform-scale2d: 1;
+	}
+	
+	50%
+	{
+		brightness: 1.6;
+		pre-transform-scale2d: 1.01;
+	}
+	
+	100%
+	{
+		brightness: 1;
+		pre-transform-scale2d: 1;
+	}
+	
+}
+
+#scheduleIcon
+{
+	width: 18px;
+	height: 18px;
+	background-image: url("s2r://panorama/images/icons/icon_calendar.vsvg");
+	background-size: contain;
+	wash-color: offBlack;
+	vertical-align: middle;
+	margin-right: 10px;
+}
+
+#RankedMode:hover #SetSchedule
+{
+	animation-name:schedule_button_highlight;
+	animation-duration: 2s;
+	animation-iteration-count: infinite;
+	opacity: 1;
+}
+
+#SetScheduleExplainer
+{
+	font-size: 16px;
+	text-align: center;
+	opacity: 0.6;
+	font-weight: medium;
+	margin: 5px 0px;
+	visibility: collapse;
+}
+
+#ScheduleList,.microText
+{
+	visibility: collapse;
+}
+
+#SetSchedule,#SetScheduleExplainer,.scheduleSelected #ScheduleList,.scheduleSelected .microText
+{
+	visibility: visible;
+}
+
+.scheduleSelected #SetSchedule,.scheduleSelected #SetScheduleExplainer
+{
+	visibility: collapse;
+}
+
+#ViewAllSchedules
+{
+	visibility: collapse;
+	horizontal-align: center;
+	margin-top: 30px;
+}
+
+.scheduleSelected #ViewAllSchedules
+{
+	visibility: visible;
+}
+
+.segmentContainer
+{
+	flow-children: down;
+}
+
+.rankedSchedule
+{
+	flow-children: right;
+	horizontal-align: center;
+	border: 2px solid offWhite&30;
+	border-radius: 8px;
+	padding: 10px;
+	margin: 3px;
+}
+
+#ScheduleInfo .rankedSchedule
+{
+	border: 2px solid offWhite&00;
+	margin: 0px;
+}
+
+#ScheduleInfo #RegionName
+{
+	visibility: collapse;
+}
+
+.scheduleColumn
+{
+	flow-children: down;
+	margin: 0px 5px;
+}
+
+.columnTitle
+{
+	font-family: sans;
+	font-weight: bold;
+	font-size: 15px;
+	horizontal-align: center;
+}
+
+.timeSegment
+{
+	background-color: #333;
+	width: 150px;
+	padding: 3px 5px;
+	border-radius: 3px;
+	margin: 3px 0px;
+}
+
+.rankedSchedule:selected
+{
+	border: 2px solid ritualGreen;
+	background-color: ritualGreen&20;
+}
+
+.selected
+{
+	visibility: collapse;
+}
+
+.rankedSchedule:selected .selected
+{
+	visibility: visible;
+}
+
+.timeLabel
 {
 	color: offBlack;
+	color: offWhite&90;
+	font-size: 15px;
+	horizontal-align: center;
+	font-weight: bold;
+}
+
+.microText
+{
+	font-size: 14px;
+	horizontal-align: center;
+	font-weight: medium;
+	opacity: 0.5;
 }
 
 .DropdownPlaceholder
 {
 	background-color: #333;
 	padding: 10px 30px;
+}
+
+#Option_Matchmaking
+{
+	background-image: url("s2r://panorama/images/main_menu/menu_images/menu_play_deadlock_psd.vtex");
+	background-size: cover;
+	background-img-opacity: 0.3;
+}
+
+#Option_PlayersVsBots
+{
+	background-image: url("s2r://panorama/images/main_menu/menu_images/menu_play_playersbots_psd.vtex");
+	background-size: cover;
+	background-img-opacity: 0.3;
+}
+
+#Option_HeroTesting
+{
+	background-image: url("s2r://panorama/images/main_menu/menu_images/menu_play_sandbox_psd.vtex");
+	background-size: cover;
+	background-img-opacity: 0.3;
+}
+
+#Option_BotMatch
+{
+	background-image: url("s2r://panorama/images/main_menu/menu_images/menu_play_privatebots_psd.vtex");
+	background-size: cover;
+	background-img-opacity: 0.3;
+}
+
+#Option_Lobby
+{
+	background-image: url("s2r://panorama/images/main_menu/menu_images/menu_play_custom_match_psd.vtex");
+	background-size: cover;
+	background-img-opacity: 0.3;
+}
+
+#Option_Ranked
+{
+	visibility: collapse;
+}
+
+.ranked_available #Option_RankedLocked,#RankedScheduleButton
+{
+	visibility: collapse;
+}
+
+#RankedScheduleButton,#RankedInfoButton
+{
+	horizontal-align: center;
+}
+
+.ranked_available #Option_Ranked,.ranked_available #RankedScheduleButton
+{
+	visibility: visible;
+}
+
+#UnavailableOverlay
+{
+	ignore-parent-flow: true;
+	width: 100%;
+	height: 100%;
+	background-color: #000000ee;
+	z-index: 100;
+	visibility: collapse;
+}
+
+#UnavailableOverlay Label
+{
+	text-align: center;
+	horizontal-align: center;
+	vertical-align: center;
+	font-weight: bold;
+	opacity: 0.7;
+	color: rgb(207, 62, 62);
+}
+
+.in_party #UnavailableOverlay
+{
+	visibility: visible;
 }
 
 .connectedToHeroTesting #HeroTestingShop,.in_matchmaking #matchmakeLeave,.disconnected #connect,.disconnected #citadeltv,.connectedToGame #resume,.connectedToGame #disconnect,.connectedToGame #exittesting,.connectedToGame.isSpectator #disconnect_spectator,.connectedToGame #spectate,.connectedToGame.in_post_game #disconnect_spectator
@@ -2454,6 +3046,21 @@ Label.playModeDesc
 .reconnect_available #reconnect,.leave_lobby_available #lobbyleave,.reconnect_available #reconnect_panel,.leave_lobby_available #reconnect_panel
 {
 	visibility: visible;
+}
+
+#label_leave
+{
+	visibility: collapse;
+}
+
+.SafeToAbandon #label_leave
+{
+	visibility: visible;
+}
+
+.SafeToAbandon #label_abadon
+{
+	visibility: collapse;
 }
 
 .in_party #matchmakeEnter,.in_party #create_party,.in_party.connectedToGame.isSpectator #matchmakeEnter,.in_party.connectedToGame.isSpectator.in_matchmaking #matchmakeEnter

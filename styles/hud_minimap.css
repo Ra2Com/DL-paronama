@@ -46,7 +46,7 @@
 	width: 100%;
 	height: 100%;
 	blur: gaussian( 0 );
-	z-index: 9;
+	z-index: -2;
 }
 
 #canvas
@@ -763,6 +763,30 @@
 	opacity: 0;
 }
 
+#FrogImage
+{
+	background-image: url("s2r://panorama/images/heroes/frog_mm_psd.vtex");
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 85%;
+	height: 85%;
+	vertical-align: middle;
+	horizontal-align: middle;
+	z-index: 100;
+	border-radius: 50%;
+	visibility: collapse;
+}
+
+.Frog #MainImage
+{
+	visibility: collapse;
+}
+
+.Frog #FrogImage
+{
+	visibility: visible;
+}
+
 .spectate:not(.localplayer) .hero_button_image
 {
 	brightness: 1.5;
@@ -889,5 +913,21 @@
 .player .hover_panel
 {
 	border-radius: 50%;
+}
+
+.map_targeting .player .hover_panel
+{
+	width: 100%;
+	height: 100%;
+}
+
+.connectedToHeroTesting .midImage,.connectedToHeroTesting #canvas,.connectedToHeroTesting .map_button
+{
+	visibility: collapse;
+}
+
+.connectedToHeroTesting .forceShowMinimap .map_button.player
+{
+	visibility: visible;
 }
 

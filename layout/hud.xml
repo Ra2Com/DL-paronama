@@ -39,7 +39,8 @@
 	</snippets>
 	<CitadelHud class="WindowRoot" hittest="false">
 		<Panel id="GameOverButtonContainer">
-			<TextButton id="LeaveMatchButton" class="ButtonBevel gameOverButtons Green" text="#Citadel_Hud_LeaveMatch" onactivate="CitadelDisconnectFromGame(); CitadelPlayUISound( EMainMenuActivate )" onmouseover="CitadelPlayUISound( EMainMenuHover )" />
+			<TextButton id="DisconnectButton" class="ButtonBevel gameOverButtons Green" text="#Citadel_Hud_Disconnect" onactivate="CitadelDisconnectFromGame(); CitadelPlayUISound( EMainMenuActivate )" onmouseover="CitadelPlayUISound( EMainMenuHover )" />
+			<TextButton id="LeaveMatchButton" class="ButtonBevel gameOverButtons Green" text="#Citadel_Hud_LeaveMatch" onactivate="CitadelAbandonGame(); CitadelPlayUISound( EMainMenuActivate )" onmouseover="CitadelPlayUISound( EMainMenuHover )" />
 			<TextButton id="ReturnToGameButton" class="ButtonBevel gameOverButtons Green" text="#Citadel_Hud_ReturnToMatch" onactivate="CitadelHidePostGameButtons(); CitadelPlayUISound( EMainMenuActivate )" onmouseover="CitadelPlayUISound( EMainMenuHover )" />
 		</Panel>
 		<CitadelHudEventIndicatorsPanel id="HudEventIndicatorsPanel" />
@@ -161,6 +162,7 @@
 			<Panel class="upgradeMessage upgradeReminderUI">
 				<Label html="true" text="#Citadel_HUD_AbilityUpgradeAvailable" />
 			</Panel>
+			<CitadelHudPassiveAbilities id="hud_passive_items" class="items passive_items" />
 			<CitadelHudAbilities id="hud_signature" class="abilities" slots="signature_1 signature_2 signature_3 signature_4" />
 			<ActiveAbilitiesMenu id="ActiveAbilitiesMenu" slots="item_1 item_2 item_3 item_4" />
 			<Panel id="APContainer">
@@ -278,6 +280,32 @@
 			<Label text="#Citadel_Hud_DeathCam" />
 		</Panel>
 		<CitadelHudModifierHistory id="hud_modifier_history" />
+		<Panel id="CheaterVoteBox">
+			<GlobalClassListener classes="gScoreboardOpen" />
+			<Panel id="AbramsImg" />
+			<Panel id="AlertArea">
+				<Label class="Caption" text="#Citadel_Hud_CheaterVoteAlert" />
+			</Panel>
+			<Panel id="VotingArea">
+				<Panel id="CheaterInfo">
+					<CitadelHeroImage id="CheaterHeroImage" />
+					<Label class="CaptionName" text="#Citadel_Hud_CheaterVoteCaption" />
+				</Panel>
+				<Panel id="ButtonRow">
+					<Button class="FrogButton" id="KeepPlaying" onactivate="CitadelCastCheaterVote(0)">
+						<Panel class="frogButtonIcon" />
+						<Label text="#Citadel_Hud_CheaterVote_Option_Play" html="true" />
+					</Button>
+					<Button class="FrogButton" id="Leave" text="#Citadel_Hud_CheaterVote_Option_Ban" onactivate="CitadelCastCheaterVote(1)">
+						<Panel class="frogButtonIcon" />
+						<Label text="#Citadel_Hud_CheaterVote_Option_Ban" html="true" />
+					</Button>
+				</Panel>
+			</Panel>
+			<Panel id="PromptRow">
+				<Label class="CaptionPrompt" html="true" text="#Citadel_Hud_CheaterVoteAlert_Action" />
+			</Panel>
+		</Panel>
 		<Panel id="hero_pos_debug" hittest="false">
 			<Panel id="model_position_debug" hittest="false">
 				<Label text="Small" style="font-size: 40px;" />
